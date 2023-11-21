@@ -31,15 +31,15 @@ def get_fruityvice_data(this_fruit_choice):
   
 streamlit.header("Fruityvice Fruit Advice!")
 this_fruit_choice = streamlit.text_input('What fruit would you like information about?')
-# removedstreamlit.write('The user entered ', fruit_choice)
+# removedstreamlit.write('The user entered ', this_fruit_choice)
 if not this_fruit_choice: 
   streamlit.error("please select a fruit to get more information.") 
 else: 
-  back_from_function = get_fruityvice_data(fruit_choice)
+  back_from_function = get_fruityvice_data(this_fruit_choice)
   streamlit.dataframe(fruityvice_normalized)
 streamlit.error()
 
-streamlit.stop()
+
 
 # allow the user to add a fruit to the list 
 def insert_row_snowflake(new_fruit)
@@ -54,7 +54,7 @@ if streamlit.button('Add a Fruit to the List'):
   streamlit.text(back_from_function)
 
 
-
+streamlit.stop()
 my_cur.execute("select * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.text("The fruit load list:")
@@ -62,6 +62,7 @@ streamlit.dataframe(my_data_rows)
 
 add_my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 add_my_fruit_list = add_my_fruit_list.set_index('Fruit')
+
 # Let's put a pick list here so they can pick the fruit they want to include 
 add_my_fruit = streamlit.multiselect("Add some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'])
 add_my_fruits_to_show = add_my_fruit_list.loc[fruits_selected]
