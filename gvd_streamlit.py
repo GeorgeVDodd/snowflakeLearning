@@ -36,3 +36,6 @@ my_cur.execute("SELECT * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit list contains:")
 streamlit.dataframe(my_data_rows)
+
+#Create second text entry box 
+streamlit.header("Add a fruit")
