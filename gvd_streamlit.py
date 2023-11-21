@@ -38,4 +38,6 @@ streamlit.header("The fruit list contains:")
 streamlit.dataframe(my_data_rows)
 
 #Create second text entry box 
-streamlit.header("Add a fruit")
+streamlit.header("Add a fruit:")
+fruit_to_add = streamlit.text_input('What fruit would you like to add?','Kiwi')
+
