@@ -35,20 +35,11 @@ try:
     streamlit.error("Please select a fruit to get information.")
   else:
     back_from_function = get_fruityvice_data(fruit_choice)
-    streamlit.dataframe(fruit_choice)
+    streamlit.text(fruit_choice)
       
 except URLError as e:
   streamlit.error()
 
-#streamlit.write('The user entered ', fruit_choice)
-#import requests
-
-
-
-# write your own comment - what does this do?
-
-
-# dont run anything past here while we troubleshoot 
 streamlit.stop() 
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
